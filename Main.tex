@@ -1,0 +1,123 @@
+
+\documentclass[12pt,twoside,openright]{report}
+\usepackage[utf8]{inputenc}
+
+% ---------- Necessary Packages ---------- %
+
+% For equation Environtment
+\usepackage{amsmath}
+
+% Allows you to put figures. 
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Bibliography
+\usepackage[sorting=none]{biblatex}
+\addbibresource{references.bib}
+
+% Colors
+\usepackage{color}   % May be necessary if you want to color links
+
+% Properly Formatted Units. 
+\usepackage{siunitx}
+
+
+% Footnote Package on image
+\usepackage{fnpos}
+
+% Intend after section title
+\usepackage{indentfirst}
+
+% Hyper links
+\usepackage{hyperref}
+
+\hypersetup{
+    linktocpage=true,
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor=blue
+    }
+
+
+
+
+%  Abrebbiations. 
+
+\newcommand{\hm}{$H^{-}$ }
+
+% Formats the hole document
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
+
+% Edits the headers and the footers. 
+\usepackage{fancyhdr}
+
+\def\vfootline{%
+    \begingroup\color{black}\rule[-1mm]{0.4mm}{5mm}\endgroup}
+
+% Fancy page style is for all the pages. 
+\pagestyle{fancy}
+
+\fancypagestyle{fancy}{%
+    \fancyhf{}
+    \fancyhead[ROH]{\slshape\nouppercase{\rightmark} \hspace{0.6cm} \vfootline \hspace{0.3cm}\thepage}
+    \fancyhead[LEH]{\thepage \hspace{0.3cm} \vfootline \hspace{0.6cm} \slshape\nouppercase{\rightmark}}
+}
+
+% Plain page style is for apages with titles. 
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[ROH]{\vfootline \hspace{0.3cm}\thepage}
+}
+
+%\fancyfoot{}
+%\fancyfoot[LE,RO]{\thepage}
+%\fancyfoot[LO,CE]{Chapter \thechapter}
+
+\renewcommand{\headrulewidth}{0.0pt}
+%\renewcommand{\footrulewidth}{0.4pt}
+
+
+% ----------- Necessary Paths ------------ %
+\graphicspath{ {Figures/} }
+
+% ----------------------------------------------------------------- %
+% ----------------------------------------------------------------- %
+
+\begin{document}
+
+
+\input{TitlePage}
+
+\pagestyle{plain}
+
+\input{Chapters/Preface.tex}
+
+
+\chapter{Overview} \label{ch:Overview}
+
+\input{Chapters/Chapter1_Overview.tex}
+
+\chapter{Beam Diagnostics} \label{ch:BeamDiagnostics}
+
+\input{Chapters/Chapter2_BeamInstrumetnation.tex}
+
+\chapter{Beam Matter Interaction} \label{ch:BeamMatterInter}
+\input{Chapters/Chapter3_BeamMatterInteraction.tex}
+
+
+
+
+\label{ch:H0Hm}
+
+
+% -------------- Include Appendixes ------------ %
+
+%\appendix
+
+\printbibliography 
+
+
+\end{document}
