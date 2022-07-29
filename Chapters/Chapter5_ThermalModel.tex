@@ -20,7 +20,7 @@ During operation, interceptive devices interact directly with the beam of partic
 At CERN, $34 \mu m$ carbon fiber wire scanners are used. Because of high brightness of proton and ion beams, the fibers are moved at high
 speeds, between 1 and 6 m/s. Despite that, scanning is not possible at certain beam conditions, for instance at full LHC intensity, due to wire damage. Figure \ref{fig:WireRadius} shows a picture of a wire scanner photographed with a scanning electron microscope. This scanner was used in 2008 at CERN SPS during a systematic breakage experiment \parencite[][]{ref:Msapinski}. This picture shows how the radius of the wire was reduced due to the sublimation process after consecutively reaching high temperatures.
 
-Another clear example of detector damage due to high temperature can be observed in Figure \ref{fig:SEMLinac4damage}. In this case we can observe three pictures taken from a SEM grid used at LINAC4 in 2019. This grid had $40 \mu m$ gold-coated tungsten wires. Already in the first picture (left) we can observe how the gold coating was evaporated from the wires in the central part of the grid (Gold Melting Temperature is ~ 1400 K). From the images taken with the optical microscope (center), we can observe two wires glued together due to the high temperatures reached by the detector. 
+Another clear example of detector damage due to high temperature can be observed in Figure \ref{fig:SEMLinac4damage}. In this case, we can observe three pictures taken from a SEM grid used at LINAC4 in 2019. This grid had $40 \mu m$ gold-coated tungsten wires. Already in the first picture (left) we can observe how the gold coating was evaporated from the wires in the central part of the grid (Gold Melting Temperature is ~ 1400 K). From the images taken with the optical microscope (center), we can observe two wires glued together due to the high temperatures reached by the detector. 
 
 \begin{figure}[h]
     \centering
@@ -35,7 +35,16 @@ Another clear example of detector damage due to high temperature can be observed
     \label{fig:SEMLinac4damage}
 \end{figure}
 
-To avoid these permanent damages, a deep understanding of the thermal evolution suffered by the detectors is necessary. 
+Figure \ref{fig:WireGluing} shows the effects wire gluing has on transverse beam profile measurements. These measurements were taken at LINAC4. In this figure, the same transverse beam profile before and after the detector damage is shown. To avoid these permanent damages, a deep understanding of the thermal evolution suffered by the detectors is necessary. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.60\columnwidth]{Figure_WiresGluing/WireProfile.pdf}
+    \caption{Horizontal transverse beam profile of 160 MeV beam of particles at Linac4. Same beam conditions, before and after beam damage. }
+    \label{fig:WireGluing}
+\end{figure}
+
+
 
 \section{The heat equation}
 
@@ -504,6 +513,7 @@ Results like the maximum temperature in the detector as a function of time are p
 The program has been optimized for it to be used by the python interface. However, it can also be launched by a stand-alone executable for windows systems. A more detailed description of how to use the code can be found in the user manual, accessible through the help button in the GUI, or directly in the HelpFolder.
 
 \section{Model uncertainties}
+\label{sec:ModelUnc}
 
 As with all models, the approximations done along the way induce uncertainties in the final results. In section \ref{sec:FD} we talked about the order of truncation errors. We saw how errors were related to the selection of space-time discretization sizes. In this section, we will talk about other sources of error that have proven to be more significant than the numerically induced uncertainties. 
 
@@ -562,11 +572,11 @@ parameters for Tungsten and Graphite. In this case, the uncertainties for the ot
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\columnwidth]{PlotTungstenGraphiteUncertainty/TungstenGraphUncert.png}
+    \includegraphics[width=0.7\columnwidth]{PlotTungstenGraphiteUncertainty/GraphTungsUnc.pdf}
     \caption{Material property uncertainties for Graphite and Tungsten. }
     \label{fig:MatPropUnc}
 \end{figure}
 
-Uncertainties of the Specific heat are quite small ($2.83 \% $) for both graphite and tungsten. In the case of graphite, values for the emissivity seem to be quite well known ( $ 6.75\%$). Contrarily, a much higher uncertinty was found in the case of its thermal conductivity ( $ 22.71\%$). In the case of tungsten, we find the opposite situation, different sources seem to agree on the value of the thermal conductivity ($13.0\%$ ), however, big uncertainties are found in the emissivity case ($43.26 \%$). 
+Uncertainties of the Specific heat are quite small ($2.83 \% $) for both graphite and tungsten. In the case of graphite, values for the emissivity seem to be quite well known ( $ 6.75\%$). Contrarily, a much higher uncertainty was found in the case of its thermal conductivity ( $ 22.71\%$). In the case of tungsten, we find the opposite situation, different sources seem to agree on the value of the thermal conductivity ($13.0\%$ ), however, big uncertainties are found in the emissivity case ($43.26 \%$). 
 
 This big uncertainty in the tungsten emissivity led to an in-depth investigation. To reduce the overall uncertainty of the simulations for tungsten detectors. These experimental measurements and the obtained results will be covered in Chapter \ref{ch:EmissivityMeas}.
