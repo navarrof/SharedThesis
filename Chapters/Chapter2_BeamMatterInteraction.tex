@@ -1,6 +1,6 @@
 \pagestyle{fancy}
 
-\graphicspath{ {Figures/Chapter3_BeamMatterInteraction/} }
+\graphicspath{ {Figures/Chapter2_BeamMatterInteraction/} }
 
 The response characteristics of detection instruments employed during this desis depend on the interaction of charged particles with the sensitive elements of the detectors. In order to correctly interpret the measurements, it is fundamental to understand the various types of interactions between charged particles and matter. Many general reference works are available concerning this broad topic. For example, \parencite*[]{ref:Knoll}, \parencite*[]{ref:Evans} or \parencite*[]{ref:avernier} are very good references. This chapter will introduce only the theoretical concepts necessary for the comprehension of the latter chapters. 
 
@@ -12,7 +12,9 @@ In the case of heavy charged particles, that is, particles whose rest mass is la
 
 Cherenkov radiation will also be neglected as the conditions for its observation will never be reached in the casuistics of this thesis \parencite*[]{ref:Cherenkov}. For this reason, for the rest of the chapter, we will focus our attention solely to energy losses due to ionization and excitation processes. 
 
-\section{Energy Loss: The Bethe Bloch Formula}
+\section{Energy Loss}
+
+\subsection{The Bethe Bloch Formula}
 \label{sec:Bethe}
 
 Stopping power is the parameter used to describe the gradual loss of energy of a charged particle as it penetrates into a medium. For a given heavy incident particle and target, this energy loss is very dependent on the particle velocity. In moderately relativistic energy ranges ($10$ - $10^6$ \si[]{\mega \electronvolt}/amu), the electrostatic stopping power is well defined by the Bethe Bloch theory \parencite[]{ref:Bethe}. 
@@ -71,7 +73,7 @@ Finally, $\delta (\beta \gamma)$ is a parametrized density correction factor nec
     \label{fig:EneDep}
 \end{figure}
 
-\section{Energy Loss in Mixtures and Compounds.}
+\subsection{Energy Loss in Mixtures and Compounds.}
 
 As a first approximation, one can consider a compound to be made up of very thin layers of pure elements in the right proportion. That is: 
 
@@ -81,7 +83,7 @@ As a first approximation, one can consider a compound to be made up of very thin
 
 Where $\left. \frac{dE}{dx}\right\vert_j$  is the energy loss in the j-th compound. However, it is important to remember that this is an approximation. The values of I and $\delta (\beta\gamma)$ are not perfectly represented by this addition method. More accurate values can be found in \parencite*[][]{ref:compound1} and \parencite*[][]{ref:compound2}, which include measured coefficients for nearly 200 mixtures and compounds. 
 
-\section{Electrons Energy Loss}
+\subsection{Electrons Energy Loss}
 
 For light particles such as electrons, bremsstrahlung losses are not negligible and can become dominant for energies above a few tens of \si[]{\mega\electronvolt}. One can define the critical energy $(E_c)$ as the point where the loss rates by Ionization and bremsstrahlung are the same \parencite*[][]{ref:EleCricEne}. 
 
@@ -146,7 +148,7 @@ The thicker the absorber and the larger its atomic number Z, the greater the lik
 
 Here $p,\beta c $ and z are the momentum, velocity and charge number of the incident particle and $l/X_0$ is the thickness of the medium measured in radiation lengths $X_0$, discussed in the following section. Experimental measurements show excellent agreement with the Gaussian distribution at small angles, and as expected, start differing at larger angles. This divergence can be explained due to the higher probability of close encounters which result in larger scattering angles. 
 
-\section{Electron Back-Scattering}
+\subsection{Electron Back-Scattering}
 \label{sec:BS}
 It is very difficult to study any theory of multiple scattering for incident light particles such as electrons, due to the large number of scattering processes, not only by the atomic nuclei but also by the other electrons in the medium \parencite*[][]{ref:MultipleElec1} Equation \ref{eq:multscat} would need some corrections to properly describe the multiple scattering suffered by this light incident particle \parencite*[][]{ref:MultipleElec2}
 
@@ -162,7 +164,7 @@ For light particles, large scattering angles are not rare. Those electrons that,
 For this document, we will only be concerned about the back-scattering electron yield ($BS_{el}$), which can be defined as the ratio between the number of outgoing primary electrons and the incident electron flux. Back-scattering of heavier particles, such as protos, is also possible. However, for our range of energies and material selection, we will consider this possibility to be negligible.
 
 
-\section{Path Length and Range}
+\subsection{Path Length and Range}
 \label{sec:Range}
 The distance traveled by a particle inside a target until it loses all its energy can be quantified by means of the range. The range is usually an experimental concept, and there are several definitions for it, but all of them relate roughly to the same quantity \parencite*[][]{ref:Knoll}. In this document, we will define the range (R) as the penetration depth in a medium that reduces the number of incident particles to one-half. The maximum penetration depth ($R_{max}$) is defined as the depth in the absorbing medium beyond which no particles are observed to penetrate. Finally, the total path length will measure the distance travelled by the particle measured along the actual path of the particle. Figure \ref{fig:RangeVsPathLength} illustrates the differences between these definitions. 
 
@@ -271,7 +273,7 @@ Early investigations of SEE already show a dependence of SEE with temperature \p
 
 It is important to note that the semiempirical theory of secondary emission is only considered to be accurate for backward emission (projectile entering the target). For the rear face of the target, the secondary emission is difficult to distinguish from the existing $\delta$ rays. On first approximation, we will also consider this formulation to be valid in the rear face assuming that the error due to $\delta$ raw emission can be neglected.  
 
-\section{Delta Rays}
+\subsection{Delta Rays}
 
 Most frequently, the electrons generated by SE have small energy. However, if the energy transferred to the electron is above a few hundred \si[]{\electronvolt} (up to $T_{max}$), they might be able to generate further ionization on their own. An analytical formulation for the total number of $\delta$-rays produced from charged particle interactions was presented by Rossi in 1952 \parencite*[][]{ref:delta1}, and gives the distribution of $\delta$ rays for incident particles with energy $I \ll T \ll T_{max}$ as follows: 
 
