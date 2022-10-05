@@ -2,25 +2,63 @@
 \chapter*{Abstract} \label{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
 
-Summary about thesis....
+Thin targets, in form of foils, stripes or wires, are widely used 
+in beam instrumentation to measure various beam parameters, such as intensity, position and size. All these monitors can differ in geometry and material. 
+Depending on beam parameters such as intensity, energy, transverse and longitudinal size, the detector can suffer thermomechanical stresses. This can potentially perturb the measurement accuracy and degrade the integrity of the detector. The core of this contribution presents the development of a finite-difference model, developed to simulate the particle-detector interactions and predict the detector material heating and damage. 
 
+This work has been mainly performed in the context of LINAC4, which is the first accelerator at CERN's accelerator chain. Some other facilities (CERN PS Booster, CERN SPS, GSI facility) will also be mentioned in this document. However, the majority of the studies and conclusions will refer to the energy range (45 keV - 160 MeV) and detector types available at LINAC4 (SEM grids and wire scanners). 
+
+To understand the purpose, functionality and limitation of thin target detectors, this document introduces the basic principles of transverse beam dynamics and beam matter interactions, focusing on processes such as: energy deposition, secondary electron emission (SEE), electron backscattering, etc. The thermal model implemented during this work (PyTT) to simulate the thermal evolution of thin target detectors is presented and detailed discussed. To assess the reliability of the simulated results, an experiment performed at LINAC4 is presented. This experiment heavily relied on the theory of thermionic emission to indirectly measure the temperature of the detectors during operation. 
+
+The performance of the simulation tool is discussed, in terms of results sensitivity to parameter uncertainty. Uncertainties in material parameters, such as the emissivity, yield uncertainties in simulation results. To improve our knowledge of the emissivity values of thin tungsten wires, an experimental setup, based on the calorimetric method, was implemented for this work. The experimental setup, emissivity calculation and results are detailed described. 
+
+Some examples of how this work has been useful for CERN operations, and other facilities (like GSI) are presented in these pages. This include, beam power limit calculations for the CERN Linac4 and SPS diagnostics, beam intensity and profile measurements at LINAC4, thin foil detector calibration (H0H- Monitors), SEM grid prototype testing at GSI, etc. 
 
 \chapter*{Acknowledgements} \label{Acknowledgements}
 \addcontentsline{toc}{chapter}{Acknowledgements}
 
-asdasdasd
+If this thesis becomes a reality is because of the kind support and help from many people. I would like to extend my sincere gratitude to all of them. 
+
+There are no proper words to convey my deep gratitude and respect for my thesis
+and research advisor, Dr. Federico Roncarolo. I thank him for giving me the opportunity to do this Ph.D., for his continuous support, for his patience, motivation, and his invaluable advice. I would like to express my sincere gratitude to Prof. Francisco Calvino, who since the moment I appeared in his office many years ago, has provided me with guidance, challenging projects and learning opportunities.
+
+Besides my advisors, I would like to thank the rest of the members of my thesis committee: NAME, NAME, NAME, for their encouragement, insightful comments and feedback, which have helped me in completing this project. Special thanks go to, Dr. Ariel Tarifeno. Who has been a huge influence and without whom I would have never been the scientist I am today. 
+
+I am also thankful to all the people that collaborated in the realization of this project. First, I would like to thank Dr. Mariusz Sapinski. This work would not have been possible without his previous studies and knowledge. I thank him for being always willing and enthusiastic to assist in any way he could throughout the research project. Thank you to Miguel Martin, a colleague and good friend, without whom I would (genuinely) not have been able to perform the emittance measurements. His incredible technical skills, his kindness, and his well-timed jokes made the working process so much more entertaining. 
+
+I would like to thank the ABT group, Chiara Bracco and Elisabeth Renner, for their patience and assistance during the long calibration measurements. I would also like to thank the beam instrumentation team at GSI, as well as the members of the PROACTIVE company, for giving me the opportunity to join them in their measurements campaign. 
+
+I would like to thank all the members of the PM section at CERN. I have learned so much from all of you. All those precious moments in corridors, lunchtimes, and various coffee breaks have meant more to me than you know. A special thank you goes to my amazing officemates, Daniele Butti and Luana Parsons, for all those very welcomed distractions. And to my great friends, M. Checcetto, M. Pagin and Jose Carlos, I am not going to say anything, you guys know why your name is here. 
+
+Lastly, I guess I could not finish without a chiche thank you to my mother. M'agradaria donar-te les gràcies per tot el teu suport, el teu carinyo, i l'amor que mas donat sempre. M'agradaria agrair-te tots els teus esforços, tot el que has sacrificat per mi. Sé que no ha sigut fàcil, però jo sempre he sigut molt feliç i si he arribat fins aquí es graciés tu. Intento dir-t'ho tant com puc, però t'ho torno a dir, i ara per escrit i tot. Moltes gràcies mare!
 
 \tableofcontents
 \addcontentsline{toc}{chapter}{Contents}
 
-
 \listoffigures
 \addcontentsline{toc}{chapter}{List of Figures}
-
-\chapter*{List of Abbreviations}
-\addcontentsline{toc}{chapter}{List of Abbreviations}
 
 % ----------- INClude All the chapters ---------- %
 
 \chapter*{Overview} \label{Overview}
 \addcontentsline{toc}{chapter}{Overview}
+
+
+This document has been divided into seven chapters, each one of them trying to cover a specific part of this work.  The following outline is designed to give an insight to this works layout and briefly describe the contents of each chapter.
+
+Chapter \ref{ch:Introduction} gives a general introduction to this work. It descrives with some detail CERN accelerator's chain. Paying special attention to LINAC4, which gives context to the majority of studies presented in this thesis. Some basic concepts about accelerator physics are introduced. Specifically, the concepts of transverse beam physics and transverse beam profiles. The chapter then moves onto beam instrumentation used to measure the previously described concepts. This is a very broad topic, so only the detectors relevant for this work are described. Those bein, SEM grids, Wire Scanners and Beam Current Transformers.  
+
+
+Chapter \ref{ch:BeamMatterInter} introduces the basics of beam matter interactions and current generation in thin target detectors. The first part of the chapter (Section \ref{sec:BeamMatterInter}) focuses on how charged particles interact with matter. The concepts introduced are: Energy loss, multiple scattering, path and range, backscattering electrons, Secondary electron emission, delta rays, etc. The second part of this chapter (Section \ref{sec:CurrentMoeling}) uses all these concepts to describe a semiempirical model used to describe the signal generation in the thin target detectors due to the interaction with the beam of particles. 
+
+Chapter \ref{ch:TempModeling} presents a theoretical description of the thermal model  underlies the PyTT simulation tool. The heating and cooling processes accounted by this program, as well as the numerical methods used for the implementation for this code are detaideldy explained. A Graphical user interface was implemented to facilitate the usage of this code. This GUI is brifely discussed and presented in this chapter. The performance of the simulation tool is then discused, in terms of results sensitivity to parameter uncertainty.
+
+Chapter \ref{ch:ThermoMeasur} contains four clearly differentiable sections. The first part of the chapter presents an example about how the current models previously described where used to calculate signal generation in the detectors at LINAC4. This is followed by presenting some beam intensity and profile measurements taken at LINAC4, which were very useful to asses on the integrity and reliability of the instruments installed in this accelerator. Section \ref{sec:AnsysComparison} shows a summary of the results obtained when comparing the PyTT software to ANSYS, a comercially available software which is commonly used for thermomecanical studies.In Section \ref{sec:ThermionicMeas}, the theory of thermionic emission was used to indirectly measure the thermal evolution of thin tungsten wires at LINAC4. These experimental results were compared with simulations performed with the PyTT code, yielding a very first experimental benchmarking of the simulation tool. The final section (Section \ref{sec:ApplicationsPyTT}), gives various usage examples for this code. Particularly, beam power limit calculations at LINAC4 and SPS accelerators are presented. 
+
+When reaching chapter \ref{ch:EmissivityMeas} hopefully it will be clear that uncertainties in material parameters, such as the emissivity of the material, yield big uncertainties in the simulated results. This chapter describes an experiment, based on the calorimetric method, to measure the emissivity of thin tungsten wires. This set-up was designed, implemneted and tested during entirely during the realization of this work. 
+
+The last two chapters of this document are slightly different to the rest of the work. Even if they reference previous chapters and aforementioned concepts they can almost be taken sepparately. Chapter \ref{ch:H0Hm} describes the calibration of the \hzhm current monitors. These detectors  continuously monitor the amount of non stripped \hm ions that, not injected in the PS Booster ring, are absorbed by the dedicated dump. This chapter describes what are these detectos, how are they used in the newly installed Charge-Exchange injection system, itdescribes the results from the calibration campaigns, and presents a discussion on their reliability and current performance. 
+
+Finally, Chapter \ref{ch:GSI} presents the results obtained during an experimental campaing at GSI. During these experiments, two SEM grid prototypes, designed and manufactured by PROACTIVE, were tested. TThese experiment had two main objectives. To ensure the ability of the Grids to withstand the pLinac conditnions. To measure the dependency of the measured current with the external applied voltage on the diamond shaped cleaning electrodes.  In paralel to the measurement thermal simulations were done with the PyTT code, predicting the wire temperature at variuous experimental conditions. 
+
+The conclusions succinctincly summarize the results obtained in this document and discuss on the relevance and impact this study had on the field. 
