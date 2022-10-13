@@ -13,7 +13,7 @@
 \usepackage{subcaption}
 
 % Bibliography
-\usepackage[sorting=none]{biblatex}
+\usepackage[maxnames=2, minnames=1, sorting=none]{biblatex}
 \addbibresource{references.bib}
 
 % Colors
@@ -55,8 +55,8 @@
 
 \newcommand{\hm}{$H^{-}$ }
 \newcommand{\prot}{$p^{+}$ }
-\newcommand{\hzz}{$H^{0}$}
-\newcommand{\hzhm}{$H^{0}H^{-}$}
+\newcommand{\hzz}{$H^{0}$ }
+\newcommand{\hzhm}{$H^{0}H^{-}$ }
 
 % Formats the hole document
 \usepackage[a4paper,width=150mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
@@ -104,40 +104,44 @@
 
 \input{Chapters/Preface.tex}
 
-
 \chapter{Introduction} 
 \label{ch:Introduction}
 \input{Chapters/Chapter1_Introduction.tex}
 
-\chapter{Beam Matter Interaction} 
+\chapter{Particle Interactions with Matter} 
 \label{ch:BeamMatterInter}
 \input{Chapters/Chapter2_BeamMatterInteraction.tex}
 
-\chapter{Numerical Methods, Thermal Model.}
+\chapter{Current Generation Modeling in SEM}
+\label{ch:CurrentModeling}
+\input{Chapters/Chapter3_CurrentModeling.tex}
+
+\chapter{Thermal Modeling of Thin Target Detectors.}
 \label{ch:TempModeling}
-\input{Chapters/Chapter3_ThermalModel.tex}
+\input{Chapters/Chapter4_ThermalModel.tex}
 
-\chapter{Simulation Benchmarking: Thermionic Measurements}
+\chapter{Simulation Benchmarking and Applications}
 \label{ch:ThermoMeasur}
-\input{Chapters/Chapter4_SimulationBenchmarking.tex}
+\input{Chapters/Chapter5_SimulationBenchmarking.tex}
 
-\chapter{Thin Wire Emissivity Measurements}
-\label{ch:EmissivityMeas}
-\input{Chapters/Chapter5_EmissivityMeas.tex}
+% \chapter{Thin Wire Emissivity Measurements}
+% \label{ch:EmissivityMeas}
+% \input{Chapters/Chapter6_EmissivityMeas.tex}
 
-\chapter{H0H- Monitor Calibration and Comissioning}
-\label{ch:H0Hm}
-\input{Chapters/Chapter6_H0H-Calibration.tex}
+% \chapter{H0H- Monitor Calibration and Comissioning}
+% \label{ch:H0Hm}
+% \input{Chapters/Chapter7_H0H-Calibration.tex}
 
-\chapter{SEM Grid Testing at GSI}
-\label{ch:GSIMEasurements}
-\input{Chapters/Chapter7_GSI.tex}
+% \chapter{SEM Grid Testing at GSI}
+% \label{ch:GSIMEasurements}
+% \input{Chapters/Chapter8_GSI.tex}
 
-%\chapter{Conclusions}
-%\label{conclusions}
-%\input{Chapters/Conclusion.tex}
+% \chapter*{Conclusions}
+% \addcontentsline{toc}{chapter}{Conclusions}
+% \label{conclusions}
+% \input{Chapters/Conclusion.tex}
 
-% -------------- Include Appendixes ------------ %
+% % -------------- Include Appendixes ------------ %
 
 \printbibliography 
 

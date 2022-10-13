@@ -1,0 +1,167 @@
+\pagestyle{fancy}
+
+\graphicspath{ {Figures/Chapter3_CurrentModeling/} }
+
+The working principle of the thin target detectors (SEM grid, Wire Scanners and Foils) used in this work is based on the current generation in the detectors due to the interaction with the beam of particles. As explained in the previous chapter several processes can contribute to this current generation. Here we present a semi-empirical model used to describe the current generated in these detectors due to the interaction with a beam of ions. This model has been used extensively to predict and interpret the signal generated in various detectors. To showcase its applicability, an example of Signal generation studies and measurements at Linac4 are presented. 
+
+\section{Signal Generation in SEM}
+
+If we consider an incident projectile ($P_{proj}$) with $N_p$ number of protons and $N_e$ number of electrons, one can define the net charge generated on a SEM as:
+
+\begin{equation}
+    \label{eq:Qsum}
+    Q\left(\frac{e}{Proj}\right) = Q_{dep} + Q_{SE} + Q_{th}
+\end{equation}
+
+Where $Q_{dep}$ represents the charge generation due to Charge deposition. $Q_{SE}$ is the charge due to secondary emission and $Q_{th}$ is the charge due to thermionic emission. Figure \ref{fig:SignalGeneration} shows a schematic representation of the different processes that contribute to the charge generation in the material. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.50\columnwidth]{Figure_ChargeGeneration/ChargeGen.pdf}
+    \caption{Schematic Representation of processes inducing current in the detector material.}
+    \label{fig:SignalGeneration}
+\end{figure}
+
+\subsection{Charge Deposition ($Q_{dep}$)}
+
+The electrical charge directly deposited in the target depends on the probability of the protons and the electrons remaining inside. This can be written as: 
+
+\begin{equation}
+    Q_{dep} = N_p \cdot \eta - N_{e}\cdot \mu
+\end{equation}
+
+Where $\eta$ is the proportion of protons that are stopped in the material and $\mu$ is the proportion of electrons. These parameters depend on the range of the particles in the detector material, and on the back-scattering probability. 
+
+\subsection{Secondary Emission Charge ($Q_{SE}$)} 
+
+The charge generated in the material by a particle, with $N_p$ number of protons and $N_e$ number of electrons, can be modeled as: 
+
+\begin{equation}
+    \begin{split}
+        Q_{SE} = N_p \cdot SEY_{p1} + N_p \left(1-\eta\right)SEY_{p2} + 
+                N_e \cdot SEY_{e1} + N_e \left( 1 - \mu \right) SEY_{e2} + \\
+                N_p \cdot BS_p \cdot SEY_{BSp} + N_e \cdot BS_e \cdot SEY_{BSe}
+    \end{split}
+    \label{eq:Qse}
+\end{equation}
+
+Secondary emission is a surface process. In the case of a thin target detector, SE can occur at the entrance surface ($SEY_1$) and at the exiting one ($SEY_2$). And it can be induced by both the incident protons ($SEY_p$) and the electrons ($SEY_e$). In some cases, the probability of electron and proton backscattering ($BS_e$ and $BS_p$) is not negligible. In those cases, one must also consider the contribution of the secondary electrons generated due to the backscattered particles crossing twice the incident surface ($SEY_{BEp}$ and $SEY_{BEe}$). In all the cases, SEY represents the secondary emission yield that was introduced in \ref{sec:SEY}. In this formula, we have distinguished between different sources of SEE. However, in the first approximation, the different SEYY terms can be considered to be the same. 
+
+\subsection{Thermionic Emissioon Charge ($Q_{Th}$)}
+\label{sec:ThermoCurrent}
+
+Thermionic emission is the process by which free electrons are emitted from the surface of a metal when they gain enough thermal energy to overcome the work function. As thermionic electrons are negative charges exiting the material surface, they will contribute to signal generation. $J_{Th}$ is the current density of emitted electrons and it is described by Richardson-Duschman equation \parencite[][]{ref:Richardson}:
+
+\begin{equation}
+    J_{Th} = A_R \cdot T^2 \cdot exp\left(-\frac{\phi}{k_B T} \right) 
+    \label{eq:ThermoCurrent}
+\end{equation}
+
+$A_R$ is the Richardson constant and $K_B$ is Boltzmann's constant. From this equation, one can observe how dependent thermionic emission is on temperature. It is not until high temperatures are reached that thermionic emission can be detected. More on this will be explained in the following chapters. 
+
+\section{Signal Generation Studies at LINAC4.}
+\label{sec:SignalStudiesL4}
+
+As was introduced in \ref{sec:LINAC4}, LINAC4 accelerates \hm particles up to 160 MeV. \hm ions consist of one proton ($N_p$ = 1) and two electrons ($N_e$ = 2). In this case formula \ref{eq:Qsum} can be written as: 
+
+\begin{equation}
+    Q\left(\frac{e}{H^{-}}\right) = \eta - 2\mu + \left( 2 - \eta + BS_p \right) \cdot SEY_p +2\left( 2 - \mu - BS_e \right) \cdot SEY_e
+    \label{eq:Ql4}
+\end{equation}
+
+Note that in this case, we are considering the secondary emission yield for electrons and protons to be the same at the entrance and the exit of the detectors. The rest of the parameters in this equation must be estimated, and they are dependent on the detector material. At LINAC4, the wires have a width of $40$ \si{\micro\metre} for the case of tungsten and 33 \si{\micro \metre} for the case of graphite wires.  Tungsten wires are used at high energies. Graphite wires are located at lower beam energies. Figure \ref{fig:RangeLinac4} shows how the values of the range of protons change as a function of the particle energy. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\columnwidth]{RangePlotLinac4/RangeL4.pdf}
+    \caption{Range of particles as a function of incident ion energy.}
+    \label{fig:RangeLinac4}
+\end{figure}
+
+From this figure, we can see how the range of the particles in the material increases as their energy increases. For the same energies, the particles have a much larger range in the case of graphite compared to tungsten. The range of protons is larger than the detector thickness in most of the energy range. Only tungsten detectors placed at energies smaller than 5  \si[]{\mega\electronvolt} are expected to get a positive charge deposition. The electrons in an \hm ion have energy much smaller than the proton. It is actually reduced a factor $m_p / m_e = 1836.15$ compared to the energy of the \hm ions.  Electrons are expected to deposit all their energy in all the SEM grids and Wire scanners at Linac4. So we expect to always have a double negative charge contribution. 
+
+Table \ref{tab:ChargePar} summarizes the values for $\eta$ and $\mu$ parameters along the Linac4 accelerator range. This table also summarizes the values of the Backscattering probabilities for both electrons and protons. All these values have been calculated with Geant4 \parencite[][]{ref:Geant4}. The backscattering probability is negligible for the protons. Contrarily, the electron backscattering probability is not negligible. In the case of tungsten, for ion energies of 160 MeV half of the electrons are backscattered.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{cccccccccc}
+    \hline
+    \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}$p^+$ energy \\ (MeV)\end{tabular}} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}$e^-$ energy\\ (keV)\end{tabular}} & \multicolumn{4}{c}{Graphite} & \multicolumn{4}{c}{Tungsten} \\ \cline{3-10}  &   & $\eta$   & $\mu$     & $BS_p$ & $BS_e$   & $\eta$ & $\mu$     & $BS_p$ & $BS_e$     \\ \hline
+    3                                                                     & 1.63                                                                           & 0.001 & 0.918 & 0.0 & 0.081 & 1.0 & 0.632  & 0.0 & 0.367   \\
+    50                                                                    & 27.23                                                                          & 0.0   & 0.931  & 0.0 & 0.068 & 0.0 & 0.506  & 0.0 & 0.493  \\
+    102                                                                   & 55.55                                                                          & 0.0   & 0.887  & 0.0 & 0.112 & 0.0 & 0.487 & 0.0 & 0.512 \\
+    160                                                                   & 87.14                                                                          & 0.0   & 0.857  & 0.0 & 0.142 & 0.0 & 0.464  & 0.0 & 0.536   \\ \hline
+    \end{tabular}
+    
+    \caption{Summary of charge deposition and backscattering probabilities for Tungsten ($40 \mu m$) and Graphite ($33 \mu m$)} detectors.
+    \label{tab:ChargePar}
+\end{table}
+
+Figure \ref{fig:SEYmat} shows the Secondary Emission yield calculated with the semiempirical Sternglass formula (Eq. \ref{eq:sey}) as a function of the incident proton energy.  In both materials, the SEY reaches a maximum ( $~ 0.1 $ MeV ) which is followed by a decrease in the SEY. Graphite presents a higher SEY at smaller proton energies whereas tungsten presents a higher SEY at higher incident particle energies. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.93\columnwidth]{Figure_SEY/SEY_compa.pdf}
+    \caption{Secondary Emission Yield as a function of incident proton energy. }
+    \label{fig:SEYmat}
+\end{figure}
+
+Putting all the terms together, one can simulate the particle profile. As an example, figure \ref{fig:ProfComparison} shows a simulated beam profile at 3 MeV and 160 MeV. From these figures, we can observe how at 3 MeV the positive contribution to the charge is predominant. For tungsten, at 3 MeV, the overall signal is negative as the charge deposition contribution is higher than the SEY. At 160  MeV, the absolute signal in tungsten is also smaller than in graphite due to this high SEY.
+
+At Linac4, even if these detectors are called Secondary Emission Monitors, the biggest contribution to the charge formation is the charge deposition term. To prevent misinterpretations, SE is typically suppressed by a bias current.  At LINAC4, the detectors at lower energies are usually conformed with graphite wires, to avoid the positive contribution of the proton charge deposition. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\columnwidth]{Figure_ProfCompa/ProfileComparison.pdf}
+    \caption{Expected transverse beam profile for incident \hm particles. Left: 3 (MeV), Right: 160 (MeV). For these simulations, a 25 mA, 100 $\mu s$ particle beam was considered. }
+    \label{fig:ProfComparison}
+\end{figure}
+
+\section{Beam Intensity and Profile Measurements.}
+\label{sec:LBE}
+
+All the results presented in this section correspond to the first profile and current measurements for the LBE run, which took place in November 2019 \parencite*[][]{ref:PresentationLBERun}. The objective of these measurements was to study the transverse profile evolution of the particle beam along the LINAC4 accelerator. These measurements were the first systematic set of measurements of the LBE run, they helped understand the beam evolution along the accelerator and thus helped correct the observed irregularities. These measurements also helped assess and correct any issues on the measuring devices, such as broken wires, position misreadings, data acquisition problems, etc.  
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\columnwidth]{IntensityVStime/IntensityVStime.pdf}
+    \caption[The LOF caption]{Beam current shape along beam pulse, from the first BCT in L4T line.}
+    \label{fig:BCTwithTime}
+\end{figure}
+
+Figure \ref{fig:DetLocation} showed a schematic representation of LINAC4 with the different detectors and locations. As we can see from this figure, both BCTs and Beam profile instruments are placed all along LINAC4 so the beam parameters can be measured in all the acceleration stages. Figure \ref{fig:BCTwithTime} shows an example of intensity measurement taken by the first BCT in the L4T segment. From this figure, one can observe the expected features of a LINAC4 pulse. The signal measured is negative along the whole pulse. In this case, the beam pulse length was 360 $\mu s$ with an average intensity of $\sim 17 $ \si[]{\milli \ampere}. One can observe the 1 \si[]{\micro \second} gaps generated by the chopper, which make the beam pulse ready to be injected into the different PS Booster rings. 
+
+By measuring the average current of the beam at all the available BCTs, one can assess the beam transmission along the accelerator. Figure \ref{fig:BeamTrans} shows an example of beam transmission measurement. From this figure, one can observe how in all parts of the accelerator. The beam transmission remains very close to $100 \%$ along the whole accelerator. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\columnwidth]{BCT_Transmission/TransmissionBCT.pdf}
+    \caption{Average intensity measured by the different BCTs at LINAC4. Transmission along the LBE line.}
+    \label{fig:BeamTrans}
+\end{figure}
+
+Similarly, the beam profile was measured along the accelerator, to cross-check the beam evolution as well as to assess the integrity and status of the devices installed along the accelerator.  Figure \ref{fig:HorizontalProf} shows the measurements of the horizontal profile of the beam along the LINAC4 accelerator. All these measurements were taken with the SEM grids. From this figure we can observe:
+
+\begin{itemize}
+    \item The beam profile seemed to be very much gaussian in all the measurement points except for LBE1 and LBE2 positions.
+    \item Broken wires: SEM grids L4T2 and LBE3 present a broken wire that must be repaired. Wires 12-13 and 14-15 in L4P1 are glued together. 
+    \item Some of the grids have an even wire separation while others present a noneven wire distancing. 
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\columnwidth]{SigmaEvol/HorEvol.pdf}
+    \caption{Horizontal transversal beam profile measured by the different detectors at LINAC4}
+    \label{fig:HorizontalProf}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1.0\columnwidth]{VertProf/VertProf.pdf}
+    \caption{Vertical transverse profile measured by the second SEM grid and second wire scanner of the L4T line at Linac4.}
+    \label{fig:VertProf}
+\end{figure}
+
+The evolution of the vertical profile was similarly studied. Also, measurements of the transverse beam profile were taken with the wire scanners. Figure \ref{fig:VertProf} shows an example of a vertical profile taken with both the second SEM grid and the second Wire Scanner from the L4T line. In this case, the particle beam clearly shows some shoulders or tails that push it away from the Gaussian distribution. Another thing that one can observe from this figure, is the great agreement between the beam profile measurements by the sem grid and the wire scanner. 
